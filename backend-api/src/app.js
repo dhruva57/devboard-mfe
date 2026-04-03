@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
 
+const taskRoutes = require("./routes/taskRoutes");
 const notFound = require("./middleware/notFound");
 const errorHandler = require("./middleware/errorHandler");
 
@@ -22,6 +23,8 @@ app.get("/api/health", (req, res) => {
     message: "API is running",
   });
 });
+
+app.use("/api/tasks", taskRoutes);
 
 app.use(notFound);
 app.use(errorHandler);
