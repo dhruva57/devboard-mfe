@@ -1,27 +1,32 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-// import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from "@tailwindcss/vite";
 import federation from "@originjs/vite-plugin-federation";
 
 export default defineConfig({
   plugins: [
     react(),
-    // tailwindcss(),
+    tailwindcss(),
     federation({
-      name: "common_remote",
+      name: "mfeDashboard",
       filename: "remoteEntry.js",
       exposes: {
-        "./constants": "./src/constants/constants.ts",
-        "./ErrorState": "./src/components/ErrorState.tsx",
-        "./LoadingState": "./src/components/LoadingState.tsx",
+        "./App": "./src/App",
+      },
+      remotes: {
+        common_remote: "http://localhost:5002/assets/remoteEntry.js",
       },
       shared: ["react", "react-dom"],
     }),
   ],
+  server: {
+    port: 5001,
+  },
+  preview: {
+    port: 5001,
+  },
   build: {
-    modulePreload: false,
     target: "esnext",
-    minify: false,
-    cssCodeSplit: false,
+    modulePreload: false,
   },
 });

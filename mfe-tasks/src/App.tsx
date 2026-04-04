@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { TaskForm } from "./components/TaskForm";
 import { FilterBar } from "./components/FilterBar";
-import { ErrorState } from "./components/ErrorState";
-import { LoadingState } from "./components/LoadingState";
 import { EmptyState } from "./components/EmptyState";
 import { TaskList } from "./components/TaskList";
 import { useTasks } from "./utils/useTasks";
+import { ErrorState } from "common_remote/ErrorState";
+import { LoadingState } from "common_remote/LoadingState";
 
 export const App = () => {
   const { loadTasks, errorMsg, isLoading, tasks } = useTasks();
@@ -49,7 +49,9 @@ export const App = () => {
               <FilterBar />
             </div>
 
-            {errorMsg && !isLoading ? <ErrorState /> : null}
+            {errorMsg && !isLoading ? (
+              <ErrorState errorMsg={errorMsg} onRetry={() => loadTasks()} />
+            ) : null}
 
             {isLoading ? (
               <LoadingState />
