@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
           mfeDashboard: env.VITE_DASHBOARD_REMOTE,
           common_remote: env.VITE_COMMON_REMOTE,
         },
-        shared: ["react", "react-dom", "react-router-dom"],
+        shared: ["react", "react-dom", "react-router-dom", "recharts"],
       }),
     ],
     server: {

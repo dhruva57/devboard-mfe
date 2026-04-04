@@ -5,7 +5,7 @@ import { LoadingState } from "common_remote/LoadingState";
 import type { IDashboard } from "./types/IDashboard";
 import { RefreshButton } from "./components/RefreshButton";
 import { StatsGrid } from "./components/StatsGrid";
-// import { SimpleBarChart } from "./components/SimpleBarChart";
+import { SimpleBarChart } from "./components/SimpleBarChart";
 
 const App = () => {
   const [stats, setStats] = useState<IDashboard.ITaskStats | null>(null);
@@ -85,7 +85,7 @@ const App = () => {
         ) : (
           <div className="space-y-6">
             <StatsGrid stats={stats} />
-            {/* <SimpleBarChart stats={stats} /> */}
+            <SimpleBarChart stats={stats} />
           </div>
         )}
       </div>

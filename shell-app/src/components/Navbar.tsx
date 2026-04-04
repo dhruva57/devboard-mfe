@@ -5,13 +5,13 @@ const baseLinkClass =
 
 export const Navbar = () => {
   return (
-    <nav className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2">
       <NavLink
         to="/dashboard"
         className={({ isActive }) =>
           `${baseLinkClass} ${
             isActive
-              ? "bg-gray-900 text-white"
+              ? "bg-gray-900 !text-white"
               : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
           }`
         }
@@ -24,13 +24,13 @@ export const Navbar = () => {
         className={({ isActive }) =>
           `${baseLinkClass} ${
             isActive
-              ? "bg-gray-900 text-white"
+              ? "bg-gray-900 !text-white"
               : "bg-white text-gray-700 border border-gray-200 hover:bg-gray-50"
           }`
         }
       >
         Tasks
       </NavLink>
-    </nav>
+    </div>
   );
 };

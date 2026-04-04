@@ -16,7 +16,7 @@ export default defineConfig({
       remotes: {
         common_remote: "http://localhost:5002/assets/remoteEntry.js",
       },
-      shared: ["react", "react-dom"],
+      shared: ["react", "react-dom", "react-router-dom", "recharts"],
     }),
   ],
   server: {

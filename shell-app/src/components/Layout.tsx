@@ -1,11 +1,7 @@
 import type { ReactNode } from "react";
 import { Navbar } from "./Navbar";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-export const Layout = ({ children }: LayoutProps) => {
+export const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div className="min-h-screen bg-gray-100">
       <header className="border-b border-gray-200 bg-white">
@@ -14,9 +10,9 @@ export const Layout = ({ children }: LayoutProps) => {
             <p className="text-sm font-medium uppercase tracking-wide text-gray-500">
               DevBoard
             </p>
-            <h1 className="mt-1 text-2xl font-bold tracking-tight text-gray-900">
+            <div className="mt-1 text-2xl font-bold tracking-tight text-gray-900">
               Micro Frontend Task Manager
-            </h1>
+            </div>
             <p className="mt-1 text-sm text-gray-600">
               Shell host application loading independent Tasks and Dashboard
               remotes.
