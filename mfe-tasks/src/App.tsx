@@ -7,7 +7,7 @@ import { useTasks } from "./utils/useTasks";
 import { ErrorState } from "common_remote/ErrorState";
 import { LoadingState } from "common_remote/LoadingState";
 
-export const App = () => {
+const App = () => {
   const { loadTasks, errorMsg, isLoading, tasks } = useTasks();
 
   useEffect(() => {
@@ -66,3 +66,5 @@ export const App = () => {
     </main>
   );
 };
+
+export default App;
