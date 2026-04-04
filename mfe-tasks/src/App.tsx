@@ -1,121 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useEffect } from "react";
+import { TaskForm } from "./components/TaskForm";
+import { FilterBar } from "./components/FilterBar";
+import { ErrorState } from "./components/ErrorState";
+import { LoadingState } from "./components/LoadingState";
+import { EmptyState } from "./components/EmptyState";
+import { TaskList } from "./components/TaskList";
+import { useTasks } from "./utils/useTasks";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const { loadTasks, errorMsg, isLoading, tasks } = useTasks();
+
+  useEffect(() => {
+    loadTasks();
+  }, [loadTasks]);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.tsx</code> and save to test <code>HMR</code>
+    <main className="min-h-screen bg-gray-50">
+      <div className="mx-auto max-w-5xl px-4 py-8 md:px-6 lg:px-8">
+        <header className="mb-8">
+          <p className="text-sm font-medium uppercase tracking-wide text-gray-500">
+            DevBoard
           </p>
+          <div className="my-2 text-3xl font-bold tracking-tight text-gray-900">
+            Tasks
+          </div>
+          <p className="mt-2 max-w-2xl text-sm leading-6 text-gray-600">
+            Create, track, filter, and update your work items from this
+            independently deployed micro frontend.
+          </p>
+        </header>
+
+        <div className="grid gap-6 lg:grid-cols-[380px_1fr]">
+          <div>
+            <TaskForm />
+          </div>
+
+          <section className="space-y-4">
+            <div className="flex flex-col gap-4 rounded-2xl border border-gray-200 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <div className="text-lg font-semibold text-gray-900">
+                  Task List
+                </div>
+                <p className="mt-1 text-sm text-gray-500">
+                  View all tasks or filter by current status.
+                </p>
+              </div>
+
+              <FilterBar />
+            </div>
+
+            {errorMsg && !isLoading ? <ErrorState /> : null}
+
+            {isLoading ? (
+              <LoadingState />
+            ) : tasks.length === 0 ? (
+              <EmptyState />
+            ) : (
+              <TaskList />
+            )}
+          </section>
         </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
-}
-
-export default App
+      </div>
+    </main>
+  );
+};

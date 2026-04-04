@@ -1,4 +1,5 @@
 export const VALID_STATUSES = {
+  all: "all",
   pending: "pending",
   completed: "completed",
 };
