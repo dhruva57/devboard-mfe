@@ -19,7 +19,7 @@ export const TaskForm = () => {
 
   const handleChange = (
     field: keyof ITaskModule.ICreateTaskPayload,
-    value: string | TaskPriority
+    value: string | ITaskModule.ITaskPriority
   ) => {
     setForm((prev) => ({
       ...prev,
