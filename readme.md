@@ -30,115 +30,115 @@ Prerequisites:
 - npm
 - MongoDB Atlas
 
-Clone repo:
-git clone https://github.com/dhruva57/devboard-mfe
+Clone repo:<br>
+git clone https://github.com/dhruva57/devboard-mfe<br>
 cd devboard-mfe
 
 ## all envs for local run are present in .env.example
 
-Backend:
-cd backend-api
+Backend:<br>
+cd backend-api<br>
 npm install
 
-.env:
-PORT=4000
-MONGODB_URI=mongodb+srv://bale:testbale@cluster0.jfbllbf.mongodb.net/?appName=Cluster0
-NODE_ENV=development
-SHELL_APP_URL=http://localhost:5173
-MFE_TASKS_URL=http://localhost:5001
-MFE_DASHBOARD_URL=http://localhost:5003
+.env:<br>
+PORT=4000<br>
+MONGODB_URI=mongodb+srv://bale:testbale@cluster0.jfbllbf.mongodb.net/?appName=Cluster0<br>
+NODE_ENV=development<br>
+SHELL_APP_URL=http://localhost:5173<br>
+MFE_TASKS_URL=http://localhost:5001<br>
+MFE_DASHBOARD_URL=http://localhost:5003<br>
 
-Run:
+Run:<br>
 npm run dev
 
-common_remote:
-cd ../common_remote
-npm install
-npm run build
+common_remote:<br>
+cd ../common_remote<br>
+npm install<br>
+npm run build<br>
 npm run preview
 
-mfe-tasks:
-cd ../mfe-tasks
+mfe-tasks:<br>
+cd ../mfe-tasks<br>
 npm install
 
-.env:
-VITE_API_BASE_URL=http://localhost:4000/api
+.env:<br>
+VITE_API_BASE_URL=http://localhost:4000/api<br>
 VITE_COMMON_REMOTE=http://localhost:5002/assets/remoteEntry.js
 
-Run:
-npm run build
+Run:<br>
+npm run build<br>
 npm run preview
 
-mfe-dashboard:
-cd ../mfe-dashboard
+mfe-dashboard:<br>
+cd ../mfe-dashboard<br>
 npm install
 
-.env:
-VITE_API_BASE_URL=http://localhost:4000/api
+.env:<br>
+VITE_API_BASE_URL=http://localhost:4000/api<br>
 VITE_COMMON_REMOTE=http://localhost:5002/assets/remoteEntry.js
 
-Run:
-npm run build
+Run:<br>
+npm run build<br>
 npm run preview
 
-shell-app:
-cd ../shell-app
+shell-app:<br>
+cd ../shell-app<br>
 npm install
 
-.env:
-VITE_TASKS_REMOTE=http://localhost:5001/assets/remoteEntry.js
-VITE_DASHBOARD_REMOTE=http://localhost:5003/assets/remoteEntry.js
+.env:<br>
+VITE_TASKS_REMOTE=http://localhost:5001/assets/remoteEntry.js<br>
+VITE_DASHBOARD_REMOTE=http://localhost:5003/assets/remoteEntry.js<br>
 VITE_COMMON_REMOTE=http://localhost:5002/assets/remoteEntry.js
 
-Run:
+Run:<br>
 npm run dev
 
-Ports:
-backend-api: 4000
-mfe-tasks: 5001
-mfe-dashboard: 5003
-common_remote: 5002
+Ports:<br>
+backend-api: 4000<br>
+mfe-tasks: 5001<br>
+mfe-dashboard: 5003<br>
+common_remote: 5002<br>
 shell-app: 5173
 
 ---
 
 ## 3. Environment Variables
 
-backend-api:
-PORT=
-MONGODB_URI=
-CLIENT_URL=
+backend-api:<br>
+PORT=<br>
+MONGODB_URI=<br>
+CLIENT_URL=<br>
 NODE_ENV=
 
-mfe-tasks:
-VITE_API_BASE_URL=
+mfe-tasks:<br>
+VITE_API_BASE_URL=<br>
 VITE_COMMON_REMOTE=
 
-mfe-dashboard:
-VITE_API_BASE_URL=
+mfe-dashboard:<br>
+VITE_API_BASE_URL=<br>
 VITE_COMMON_REMOTE=
 
-shell-app:
-VITE_TASKS_REMOTE=
-VITE_DASHBOARD_REMOTE=
+shell-app:<br>
+VITE_TASKS_REMOTE=<br>
+VITE_DASHBOARD_REMOTE=<br>
 VITE_COMMON_REMOTE=
 
 ---
 
 ## 4. Live Deployment Links
 
-Frontends:
-Shell: https://shell-app-mu.vercel.app
-Tasks: https://devboard-mfe.vercel.app
-Dashboard: https://mfe-dashboard-one.vercel.app
+Frontends:<br>
+Shell: https://shell-app-mu.vercel.app<br>
+Tasks: https://devboard-mfe.vercel.app<br>
+Dashboard: https://mfe-dashboard-one.vercel.app<br>
 Common: https://mfe-common-five.vercel.app
 
-Backend:
+Backend:<br>
 https://devboard-mfe.onrender.com
 
-Remote entries:
-Tasks: https://devboard-mfe.vercel.app/assets/remoteEntry.js
-Dashboard: https://mfe-dashboard-one.vercel.app/assets/remoteEntry.js
+Remote entries:<br>
+Tasks: https://devboard-mfe.vercel.app/assets/remoteEntry.js<br>
+Dashboard: https://mfe-dashboard-one.vercel.app/assets/remoteEntry.js<br>
 Common: https://mfe-common-five.vercel.app/assets/remoteEntry.js
 
 ---
