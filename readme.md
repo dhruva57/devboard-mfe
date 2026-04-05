@@ -6,27 +6,7 @@ A micro-frontend based task management system with a shared component layer and 
 
 ## 1. Architecture
 
-High-level overview:
-
-                ┌──────────────────────────┐
-                │        shell-app         │
-                │  (Host / Container App) │
-                └──────────┬──────────────┘
-                           │
-        ┌──────────────────┼
-        │                  │                  
-        ▼                  ▼                  
-┌──────────────┐  ┌──────────────┐  ┌────────────────┐
-│ mfe-tasks    │  │ mfe-dashboard│  │ common_remote  │
-│ (Remote MFE) │  │ (Remote MFE) │  │ (Shared MFE)   │
-└──────┬───────┘  └──────┬───────┘  └──────┬─────────┘
-       │                  │                │
-       └──────────┬───────┴───────-────────┘
-                  ▼               
-           ┌──────────────────────────┐
-           │       backend-api        │
-           │  (Express + MongoDB)     │
-           └──────────────────────────┘
+![My project logo](hld.png)
 
 Component responsibilities:
 
